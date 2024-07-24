@@ -9,14 +9,18 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar bg-dark mb-4" border-bottom border-body data-bs-theme="dark">
+    <nav class="navbar bg-dark mb-3" border-bottom border-body data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">Posto ABC</a>
+            <a class="navbar-brand fw-bold " href="#">Posto ABC</a>
         </div>
     </nav>
 
-    <main class="container fw-bold">
+    <main class="container fw-bold mb-3">
         <h1>Listagem de Abastecimentos</h1> 
+
+        <div class="mb-3">
+            <a href="{% url 'abastecimento_create' %}" class="btn btn-primary">Novo Cadastro</a>
+        </div>
         
         {% if abastecimento_list %}
         <div class="accordion" id="accordionExample">
@@ -36,6 +40,8 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Bomba</th>
                                         <th scope="col">Tanque</th>
+                                        <th scope="col">Imposto</th>
+                                        <th scope="col">valor</th>
                                         <th scope="col">Data</th>
                                     </tr>
                                 </thead>
@@ -45,6 +51,8 @@
                                             <th scope="row">{{ abastecimento_list.pk }}</th>
                                             <td>{{ abastecimento_list.bomba.bomba_utilizada }}</td>
                                             <td>{{ abastecimento_list.bomba.tanque.tipo_combustivel }}</td>
+                                            <td>{{ abastecimento_list.imposto }}</td>
+                                            <td>{{ abastecimento_list.valor_abastecido }}</td>
                                             <td>{{ abastecimento_list.data }}</td>
                                         </tr>
                                     {% endfor %}
