@@ -48,4 +48,4 @@ class Abastecimento(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"Abastecimento na bomba {self.bomba} em {self.data}"
+        return f"Abastecimento na bomba: {self.bomba.bomba_utilizada} - Tanque: {self.bomba.tanque.tipo_combustivel} em {self.data}"

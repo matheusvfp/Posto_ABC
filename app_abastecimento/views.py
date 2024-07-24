@@ -1,5 +1,9 @@
 from django.shortcuts import render
+from .models import Abastecimento
 
 
-def home(request):
-    return render(request, "home.html")
+def listar_abastecimentos(request):
+    abastecimentos = Abastecimento.objects.all()
+    return render(
+        request, "listar_abastecimentos.html", {"abastecimentos": abastecimentos}
+    )
