@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+
+
 from .models import Abastecimento
 
 
-def listar_abastecimentos(request):
-    abastecimentos = Abastecimento.objects.all()
-    return render(
-        request, "listar_abastecimentos.html", {"abastecimentos": abastecimentos}
-    )
+class AbastecimentosListView(ListView):
+    model = Abastecimento
