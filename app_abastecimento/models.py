@@ -3,12 +3,7 @@ from decimal import Decimal
 
 
 class Tanque(models.Model):
-    TIPO_COMBUSTIVEL = [
-        ("GASOLINA", "Gasolina"),
-        ("DIESEL", "Óleo Diesel"),
-    ]
-
-    tipo_combustivel = models.CharField(max_length=50, choices=TIPO_COMBUSTIVEL)
+    tipo_combustivel = models.CharField(max_length=50)
     data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -16,15 +11,8 @@ class Tanque(models.Model):
 
 
 class Bomba(models.Model):
-    BOMBAS_ASSOCIADAS_TANQUE = [
-        ("GASOLINA 1", "Gasolina bomba 1"),
-        ("GASOLINA 2", "Gasolina bomba 2"),
-        ("DIESEL 1", "Diesel bomba 1"),
-        ("DIESEL 2", "Diesel bomba 2"),
-    ]
-
     tanque = models.ForeignKey(Tanque, related_name="bombas", on_delete=models.CASCADE)
-    bomba_utilizada = models.CharField(max_length=50, choices=BOMBAS_ASSOCIADAS_TANQUE)
+    bomba_utilizada = models.CharField(max_length=50)
 
     def __str__(self):
         return f"Bomba: {self.bomba_utilizada} - Tanque: {self.tanque}"
