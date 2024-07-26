@@ -29,8 +29,8 @@
         {% block content %}
         <h2 class= "mb-3 fw-bold">Novo Abastecimento</h2>
         <div class= "mt-2 mb-3">
-            <a href="{% url 'criar_tanques' %}" class="btn btn-primary">Criar Tanques</a>
-            <a href="{% url 'criar_bombas' %}" class="btn btn-primary">Criar Bombas</a>
+            <a href="{% url 'tanques_create' %}" class="btn btn-primary">Criar Tanques</a>
+            <a href="{% url 'bombas_create' %}" class="btn btn-primary">Criar Bombas</a>
         </div>
         <form method="post">
             {% csrf_token %}
