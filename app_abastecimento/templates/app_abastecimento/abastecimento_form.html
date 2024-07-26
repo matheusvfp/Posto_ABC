@@ -14,9 +14,22 @@
         </div>
     </nav>
 
-    <main class="container fw-bold"> 
+    <main class="container fw-bold">
+        <!-- Mensagens de Alerta -->
+        {% if messages %}
+          <div>
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        
         {% block content %}
         <h2>Novo Abastecimento</h2>
+        <a href="{% url 'criar_tanques' %}" class="btn btn-primary">Criar Tanques</a>
+        <a href="{% url 'criar_bombas' %}" class="btn btn-primary">Criar Bombas</a>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
