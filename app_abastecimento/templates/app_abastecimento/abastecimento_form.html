@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar bg-dark mb-5" data-bs-theme="dark">
+    <nav class="navbar bg-primary mb-5" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">Posto ABC</a>
         </div>
@@ -27,17 +27,34 @@
         {% endif %}
         
         {% block content %}
-        <h2>Novo Abastecimento</h2>
-        <a href="{% url 'criar_tanques' %}" class="btn btn-primary">Criar Tanques</a>
-        <a href="{% url 'criar_bombas' %}" class="btn btn-primary">Criar Bombas</a>
+        <h2 class= "mb-3 fw-bold">Novo Abastecimento</h2>
+        <div class= "mt-2 mb-3">
+            <a href="{% url 'criar_tanques' %}" class="btn btn-primary">Criar Tanques</a>
+            <a href="{% url 'criar_bombas' %}" class="btn btn-primary">Criar Bombas</a>
+        </div>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary mt-3">Salvar</button>
-            <div class="mb-3">
-                <a href="{% url 'abastecimento_list' %}" class="btn btn-primary mt-3">Listagem de abastecimento</a>
-            </div>
+            <fieldset class="border p-4 rounded fw-semibold">
+                <legend class="mb-3 ">Dados do Abastecimento</legend>
+                <div class="mb-3">
+                    <label for="{{ form.bomba.id_for_label }}" class="form-label">{{ form.bomba.label }}</label>
+                    {{ form.bomba }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.quantidade_litros.id_for_label }}" class="form-label">{{ form.quantidade_litros.label }}</label>
+                    {{ form.quantidade_litros }}
+                </div>
+                <div class="mb-3">
+                    <label for="{{ form.valor_abastecido.id_for_label }}" class="form-label">{{ form.valor_abastecido.label }}</label>
+                    {{ form.valor_abastecido }}
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a href="{% url 'abastecimento_list' %}" class="btn btn-primary">Listagem de abastecimento</a>
+                </div>
+            </fieldset>
         </form>
+
         {% endblock %}
     </main>
 
