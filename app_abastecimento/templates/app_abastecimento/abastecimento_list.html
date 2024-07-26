@@ -35,7 +35,7 @@
                     <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse show" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <table class="table">
-                                <thead>
+                                <thead class= "fw-bold" >
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Bomba</th>
@@ -45,10 +45,10 @@
                                         <th scope="col">Data</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class= "fw-medium">
                                     {% for abastecimento_list in group.list %}
                                         <tr>
-                                            <th scope="row">{{ abastecimento_list.pk }}</th>
+                                            <td>{{ abastecimento_list.pk }}</td>
                                             <td>{{ abastecimento_list.bomba.bomba_utilizada }}</td>
                                             <td>{{ abastecimento_list.bomba.tanque.tipo_combustivel }}</td>
                                             <td>{{ abastecimento_list.imposto }}</td>
