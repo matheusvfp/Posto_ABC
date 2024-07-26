@@ -1,5 +1,5 @@
 from django.db import models
-from decimal import Decimal
+from decimal import Decimal, ROUND_DOWN
 
 
 class Tanque(models.Model):
@@ -28,7 +28,9 @@ class Abastecimento(models.Model):
     imposto = models.DecimalField(max_digits=10, decimal_places=2)
 
     def calcular_imposto(self):
-        return self.valor_abastecido * Decimal(0.13)
+        return self.valor_abastecido * Decimal(0.13).quantize(
+            Decimal("0.01"), rounding=ROUND_DOWN
+        )
 
     def save(self, *args, **kwargs):
         # Ao salvar, calcular e atribuir o imposto
