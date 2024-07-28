@@ -75,4 +75,4 @@ Se você quiser apoiar o projeto, deixe uma ⭐.
 
 ______
 
-Made with ❤️ by Matheus
+Made with ❤️ by [Matheus Vinícius](https://www.linkedin.com/in/matheusviniciusfp/).
