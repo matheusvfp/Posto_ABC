@@ -67,8 +67,12 @@ O projeto foi desenvolvido utilizando Python e Django. A aplicação segue boas 
 - `requirements.txt` - Lista de dependências do projeto.
 - `README.md` - Este arquivo com instruções para configuração e execução.
 
+## Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
 ## Apoie o Projeto 🙌
 Se você quiser apoiar o projeto, deixe uma ⭐.
+
 ______
 
 Made with ❤️ by Matheus
