@@ -1,5 +1,6 @@
 from django.views.generic import ListView, CreateView, View
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Abastecimento, Bomba, Tanque
@@ -43,3 +44,8 @@ class AbastecimentoCreateView(CreateView):
     model = Abastecimento
     fields = ["bomba", "quantidade_litros", "valor_abastecido"]
     success_url = reverse_lazy("abastecimento_list")
+
+    def form_valid(self, form):
+        super().form_valid(form)
+        messages.success(self.request, "Abastecimento criado com sucesso!")
+        return redirect(self.get_success_url())
